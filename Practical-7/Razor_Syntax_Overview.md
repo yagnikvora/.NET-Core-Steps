@@ -21,17 +21,13 @@ public class HomeController : Controller
 @{
     ViewBag.Title = "Table of 5";
 }
-<html>
-<body>
-    <h2>Table of 5</h2>
-    <ul>
-        @for (int i = 1; i <= 10; i++)
-        {
-            <li>5 x @i = @(5 * i)</li>
-        }
-    </ul>
-</body>
-</html>
+<h2>Table of 5</h2>
+<ul>
+    @for (int i = 1; i <= 10; i++)
+    {
+        <li>5 x @i = @(5 * i)</li>
+    }
+</ul>
 ```
 
 ---
@@ -78,48 +74,48 @@ public class HomeController : Controller
     ViewBag.Title = "Student SPI";
 }
 
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-                <div class="card shadow-sm border-0 mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">Student Details</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="mb-2"><strong>Name:</strong> @Model.Name</p>
-                        <p class="mb-0"><strong>Enrollment No:</strong> @Model.EnrollmentNo</p>
-                    </div>
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Student Details</h4>
                 </div>
-
-                <div class="card shadow-sm border-0">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Semester-wise SPI</h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table table-hover table-striped mb-0">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">Semester</th>
-                                    <th scope="col">SPI</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.SemesterSPI)
-                                {
-                                    <tr>
-                                        <td>@item.Key</td>
-                                        <td>@item.Value</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="card-body">
+                    <p class="mb-2"><strong>Name:</strong> @Model.Name</p>
+                    <p class="mb-0"><strong>Enrollment No:</strong> @Model.EnrollmentNo</p>
                 </div>
-
             </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Semester-wise SPI</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover table-striped mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Semester</th>
+                                <th scope="col">SPI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.SemesterSPI)
+                            {
+                                <tr>
+                                    <td>@item.Key</td>
+                                    <td>@item.Value</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 
 
 ```
@@ -159,48 +155,48 @@ public class HomeController : Controller
     var student = ViewBag.Student;
 }
 
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-                <div class="card shadow-sm border-0 mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">Student Details</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="mb-2"><strong>Name:</strong> @student.Name</p>
-                        <p class="mb-0"><strong>Enrollment No:</strong> @student.EnrollmentNo</p>
-                    </div>
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Student Details</h4>
                 </div>
-
-                <div class="card shadow-sm border-0">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Semester-wise SPI</h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table table-hover table-striped mb-0">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">Semester</th>
-                                    <th scope="col">SPI</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                 @foreach (var item in student.SemesterSPI)
-                                {
-                                    <tr>
-                                           <td>@item.Key</td>
-                                            <td>@item.Value</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="card-body">
+                    <p class="mb-2"><strong>Name:</strong> @student.Name</p>
+                    <p class="mb-0"><strong>Enrollment No:</strong> @student.EnrollmentNo</p>
                 </div>
-
             </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Semester-wise SPI</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover table-striped mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Semester</th>
+                                <th scope="col">SPI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                @foreach (var item in student.SemesterSPI)
+                            {
+                                <tr>
+                                        <td>@item.Key</td>
+                                        <td>@item.Value</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 
 ```
 
