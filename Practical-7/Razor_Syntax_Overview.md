@@ -77,27 +77,50 @@ public class HomeController : Controller
 @{
     ViewBag.Title = "Student SPI";
 }
-<html>
-<body>
-    <h2>Student Details</h2>
-    <p><strong>Name:</strong> @Model.Name</p>
-    <p><strong>Enrollment No:</strong> @Model.EnrollmentNo</p>
-    <h3>Semester-wise SPI</h3>
-    <table border="1">
-        <tr>
-            <th>Semester</th>
-            <th>SPI</th>
-        </tr>
-        @foreach (var item in Model.SemesterSPI)
-        {
-            <tr>
-                <td>@item.Key</td>
-                <td>@item.Value</td>
-            </tr>
-        }
-    </table>
-</body>
-</html>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Student Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-2"><strong>Name:</strong> @Model.Name</p>
+                        <p class="mb-0"><strong>Enrollment No:</strong> @Model.EnrollmentNo</p>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Semester-wise SPI</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover table-striped mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Semester</th>
+                                    <th scope="col">SPI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.SemesterSPI)
+                                {
+                                    <tr>
+                                        <td>@item.Key</td>
+                                        <td>@item.Value</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
 ```
 
@@ -135,27 +158,50 @@ public class HomeController : Controller
     ViewBag.Title = "Student SPI";
     var student = ViewBag.Student;
 }
-<html>
-<body>
-    <h2>Student Details</h2>
-    <p><strong>Name:</strong> @student.Name</p>
-    <p><strong>Enrollment No:</strong> @student.EnrollmentNo</p>
-    <h3>Semester-wise SPI</h3>
-    <table border="1">
-        <tr>
-            <th>Semester</th>
-            <th>SPI</th>
-        </tr>
-        @foreach (var item in student.SemesterSPI)
-        {
-            <tr>
-                <td>@item.Key</td>
-                <td>@item.Value</td>
-            </tr>
-        }
-    </table>
-</body>
-</html>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Student Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-2"><strong>Name:</strong> @student.Name</p>
+                        <p class="mb-0"><strong>Enrollment No:</strong> @student.EnrollmentNo</p>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Semester-wise SPI</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover table-striped mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Semester</th>
+                                    <th scope="col">SPI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 @foreach (var item in student.SemesterSPI)
+                                {
+                                    <tr>
+                                           <td>@item.Key</td>
+                                            <td>@item.Value</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 ```
 
 ---
