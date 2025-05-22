@@ -20,7 +20,6 @@ public class HomeController : Controller
 ```csharp
 @{
     ViewBag.Title = "Table of 5";
-    Layout = null;
 }
 <html>
 <body>
