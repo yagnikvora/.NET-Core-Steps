@@ -1,5 +1,4 @@
 # Razor Syntax Overview in ASP.NET MVC
-
 This project demonstrates Razor syntax and basic ASP.NET MVC functionality with three tasks:
 
 ---
@@ -39,6 +38,59 @@ public class Student
 }
 ```
 
+### Controller: `Controllers/HomeController.cs`
+```csharp
+public class HomeController : Controller
+{
+    public ActionResult StudentSPI()
+    {
+        var student = new Student
+        {
+            Name = "John Doe",
+            EnrollmentNo = "123456",
+            SemesterSPI = new Dictionary<string, double>
+            {
+                {"Semester 1", 8.5},
+                {"Semester 2", 8.8},
+                {"Semester 3", 9.0},
+                {"Semester 4", 8.7}
+            }
+        };
+        return View(student);
+    }
+}
+```
+
+### View: `Views/Home/StudentSPI.cshtml`
+```csharp
+@model YourNamespace.Models.Student
+@{
+    ViewBag.Title = "Student SPI";
+}
+<html>
+<body>
+    <h2>Student Details</h2>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Enrollment No:</strong> @Model.EnrollmentNo</p>
+    <h3>Semester-wise SPI</h3>
+    <table border="1">
+        <tr>
+            <th>Semester</th>
+            <th>SPI</th>
+        </tr>
+        @foreach (var item in Model.SemesterSPI)
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+```
+
 ---
 
 ## 3) Display SPI Table using ViewBag and `foreach`
@@ -71,7 +123,7 @@ public class HomeController : Controller
 ```csharp
 @{
     ViewBag.Title = "Student SPI";
-    var student = ViewBag.Student as YourNamespace.Models.Student;
+    var student = ViewBag.Student;
 }
 <html>
 <body>
