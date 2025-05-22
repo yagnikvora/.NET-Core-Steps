@@ -5,6 +5,17 @@ This project demonstrates Razor syntax and basic ASP.NET MVC functionality with 
 
 ## 1) Print Table of 5 using Razor
 
+### Controller: `Controllers/HomeController.cs`
+```csharp
+public class HomeController : Controller
+{
+    public ActionResult TableOfFive()
+    {
+        return View();
+    }
+}
+```
+
 **View File: `Views/Home/TableOfFive.cshtml`**
 ```csharp
 @{
