@@ -14,128 +14,128 @@ This tutorial walks you through creating a static (in-memory) CRUD system using 
 ### ➤ Models/EmployeeModel.cs
 
 ```csharp
-    public class EmployeeModel
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Designation { get; set; }
-        public string Department { get; set; }
-        public double Salary { get; set; }
-    }
+public class EmployeeModel
+{
+    public int EmployeeId { get; set; }
+    public string Name { get; set; }
+    public string Designation { get; set; }
+    public string Department { get; set; }
+    public double Salary { get; set; }
+}
 ```
 ## 3. Create Employee Controller
 
 ### ➤ Controllers/EmployeeController.cs
 
 ```csharp
-    public class EmployeeController : Controller
+public class EmployeeController : Controller
+{
+    private static List<EmployeeModel> employeeList = new List<EmployeeModel>
     {
-        private static List<EmployeeModel> employeeList = new List<EmployeeModel>
-        {
-            new EmployeeModel { EmployeeId = 1, Name = "John Doe", Designation = "Manager", Department = "Sales", Salary = 50000 },
-            new EmployeeModel { EmployeeId = 2, Name = "Jane Smith", Designation = "Developer", Department = "IT", Salary = 60000 },
-        };
+        new EmployeeModel { EmployeeId = 1, Name = "John Doe", Designation = "Manager", Department = "Sales", Salary = 50000 },
+        new EmployeeModel { EmployeeId = 2, Name = "Jane Smith", Designation = "Developer", Department = "IT", Salary = 60000 },
+    };
 
-        public IActionResult Index()
-        {
-            return View(employeeList);
-        }
-
-        public IActionResult Create()
-        {
-            return View("Create", new EmployeeModel());
-        }
-
-        [HttpPost]
-        public IActionResult Create(EmployeeModel employee)
-        {
-            employee.EmployeeId = employeeList.Max(e => e.EmployeeId) + 1;
-            employeeList.Add(employee);
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Edit(int id)
-        {
-            var emp = employeeList.FirstOrDefault(e => e.EmployeeId == id);
-            if (emp == null)
-                return NotFound();
-
-            return View("Create", emp);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(EmployeeModel employee)
-        {
-            var emp = employeeList.FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
-            if (emp != null)
-            {
-                emp.Name = employee.Name;
-                emp.Designation = employee.Designation;
-                emp.Department = employee.Department;
-                emp.Salary = employee.Salary;
-            }
-            return RedirectToAction("Index");
-        }
-
-
-        public IActionResult Delete(int id)
-        {
-            var emp = employeeList.FirstOrDefault(e => e.EmployeeId == id);
-            return View(emp);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int id)
-        {
-            var emp = employeeList.FirstOrDefault(e => e.EmployeeId == id);
-            if (emp != null)
-                employeeList.Remove(emp);
-            return RedirectToAction("Index");
-        }
-
+    public IActionResult Index()
+    {
+        return View(employeeList);
     }
+
+    public IActionResult Create()
+    {
+        return View("Create", new EmployeeModel());
+    }
+
+    [HttpPost]
+    public IActionResult Create(EmployeeModel employee)
+    {
+        employee.EmployeeId = employeeList.Max(e => e.EmployeeId) + 1;
+        employeeList.Add(employee);
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Edit(int id)
+    {
+        var emp = employeeList.FirstOrDefault(e => e.EmployeeId == id);
+        if (emp == null)
+            return NotFound();
+
+        return View("Create", emp);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(EmployeeModel employee)
+    {
+        var emp = employeeList.FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
+        if (emp != null)
+        {
+            emp.Name = employee.Name;
+            emp.Designation = employee.Designation;
+            emp.Department = employee.Department;
+            emp.Salary = employee.Salary;
+        }
+        return RedirectToAction("Index");
+    }
+
+
+    public IActionResult Delete(int id)
+    {
+        var emp = employeeList.FirstOrDefault(e => e.EmployeeId == id);
+        return View(emp);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        var emp = employeeList.FirstOrDefault(e => e.EmployeeId == id);
+        if (emp != null)
+            employeeList.Remove(emp);
+        return RedirectToAction("Index");
+    }
+
+}
 ```
 ## 4. Create Required Views
 
 ### ➤ Views/Employee/Create.cshtml
 
 ```csharp
-    @model YourProjectName.Models.EmployeeModel
+@model YourProjectName.Models.EmployeeModel
 
-    @{
-        bool isEdit = Model.EmployeeId != 0;
-        ViewData["Title"] = isEdit ? "Edit Employee" : "Add Employee";
-    }
+@{
+    bool isEdit = Model.EmployeeId != 0;
+    ViewData["Title"] = isEdit ? "Edit Employee" : "Add Employee";
+}
 
-    <div class="container mt-4">
-        <h2 class="text-info">@ViewData["Title"]</h2>
-        <form asp-action="@(isEdit ? "Edit" : "Create")" method="post">
-            <input type="hidden" asp-for="EmployeeId" />
+<div class="container mt-4">
+    <h2 class="text-info">@ViewData["Title"]</h2>
+    <form asp-action="@(isEdit ? "Edit" : "Create")" method="post">
+        <input type="hidden" asp-for="EmployeeId" />
 
-            <div class="mb-3">
-                <label asp-for="Name" class="form-label"></label>
-                <input asp-for="Name" class="form-control" required />
-            </div>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" required />
+        </div>
 
-            <div class="mb-3">
-                <label asp-for="Designation" class="form-label"></label>
-                <input asp-for="Designation" class="form-control" required />
-            </div>
+        <div class="mb-3">
+            <label asp-for="Designation" class="form-label"></label>
+            <input asp-for="Designation" class="form-control" required />
+        </div>
 
-            <div class="mb-3">
-                <label asp-for="Department" class="form-label"></label>
-                <input asp-for="Department" class="form-control" required />
-            </div>
+        <div class="mb-3">
+            <label asp-for="Department" class="form-label"></label>
+            <input asp-for="Department" class="form-control" required />
+        </div>
 
-            <div class="mb-3">
-                <label asp-for="Salary" class="form-label"></label>
-                <input asp-for="Salary" class="form-control" type="number" step="0.01" min="0" required />
-            </div>
+        <div class="mb-3">
+            <label asp-for="Salary" class="form-label"></label>
+            <input asp-for="Salary" class="form-control" type="number" step="0.01" min="0" required />
+        </div>
 
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a href="/Employee" class="btn btn-secondary">Cancel</a>
-        </form>
-    </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/Employee" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 
 ```
 
