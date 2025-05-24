@@ -135,8 +135,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 ```
 
----
-
-## 4. Navigation (Optional)
-
-Update `Views/Shared/_Layout.cshtml` with Bootstrap navigation bar for easy access to these pages.
