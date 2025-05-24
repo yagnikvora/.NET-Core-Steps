@@ -90,11 +90,14 @@ namespace YourProjectName.Controllers
 @{
     ViewData["Title"] = "Contact Us";
 }
+@{
+    ViewData["Title"] = "Contact Us";
+}
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-body">
             <h2 class="text-info">Get in Touch</h2>
-            <p>If you have any questions, feel free to reach out using the form below.</p>
+            <p class="h4">Hello, @ViewBag.VisitorName! If you have any questions, feel free to reach out using the form below.</p>
 
             <form>
                 <div class="mb-3">
@@ -121,6 +124,7 @@ namespace YourProjectName.Controllers
         </div>
     </div>
 </div>
+
 ```
 
 ---
