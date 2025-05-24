@@ -90,9 +90,6 @@ namespace YourProjectName.Controllers
 @{
     ViewData["Title"] = "Contact Us";
 }
-@{
-    ViewData["Title"] = "Contact Us";
-}
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-body">
