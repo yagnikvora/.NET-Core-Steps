@@ -135,3 +135,37 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 ```
 
+## 4. HomeController.cs for Add attribute routing in above practical along with optional parameters and apply ignore route templates functionality.
+
+Place in `Controllers/HomeController.cs`:
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+
+namespace YourProjectName.Controllers
+{
+    public class HomeController : Controller
+    {
+        [Route("")]
+        [Route("index")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("about")]
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        [Route("contact-us")]
+        [Route("contact-us/{name?}")]
+        public IActionResult ContactUs(string? name)
+        {
+            ViewBag.VisitorName = name ?? "Guest";
+            return View();
+        }
+    }
+}
+```
