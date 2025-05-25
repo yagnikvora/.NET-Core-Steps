@@ -184,18 +184,3 @@ public class StudentController : Controller
     }
 </div>
 ```
-
----
-
-## ✨ Features
-
-- Clean Bootstrap UI
-- Uses only **Standard HTML Helpers**
-- Data submitted via POST and displayed immediately on the same page
-- No model binding in the form — uses `IFormCollection`
-
----
-
-## 📄 License
-
-Free to use and modify for learning purposes.
