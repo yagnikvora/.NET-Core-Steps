@@ -45,7 +45,7 @@ public class CityModel
 [Area("Country")]
 public class CountryController : Controller
 {
-    public IActionResult Index()
+    public IActionResult CountryList()
     {
         var countries = new List<CountryModel>
         {
@@ -63,7 +63,7 @@ public class CountryController : Controller
 [Area("State")]
 public class StateController : Controller
 {
-    public IActionResult Index()
+    public IActionResult StateList()
     {
         var states = new List<StateModel>
         {
@@ -81,7 +81,7 @@ public class StateController : Controller
 [Area("City")]
 public class CityController : Controller
 {
-    public IActionResult Index()
+    public IActionResult CityList()
     {
         var cities = new List<CityModel>
         {
@@ -98,7 +98,7 @@ public class CityController : Controller
 
 ## ✅ 3. Views
 
-### 📄 `Views/Country/Index.cshtml`
+### 📄 `Views/Country/CountryList.cshtml`
 ```cshtml
 @model IEnumerable<AddressBook.Areas.Country.Models.CountryModel>
 
@@ -114,7 +114,7 @@ public class CityController : Controller
 </table>
 ```
 
-### 📄 `Views/State/Index.cshtml`
+### 📄 `Views/State/StateList.cshtml`
 ```cshtml
 @model IEnumerable<AddressBook.Areas.State.Models.StateModel>
 
@@ -130,7 +130,7 @@ public class CityController : Controller
 </table>
 ```
 
-### 📄 `Views/City/Index.cshtml`
+### 📄 `Views/City/CityList.cshtml`
 ```cshtml
 @model IEnumerable<AddressBook.Areas.City.Models.CityModel>
 
