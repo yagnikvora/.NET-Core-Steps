@@ -3,16 +3,7 @@
 
 This project demonstrates how to create a **Student Registration Form** using **Standard HTML Helpers** (not strongly typed) in **ASP.NET Core MVC**, styled with **Bootstrap 5**. The submitted data is shown below the form on the same page.
 
----
 
-## 🛠 Technologies Used
-
-- ASP.NET Core MVC
-- Razor Views
-- HTML Helpers
-- Bootstrap 5
-
----
 
 ## 📁 Folder Structure
 
