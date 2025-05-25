@@ -1,4 +1,4 @@
-# 📄 Resume Upload and Display in ASP.NET Core MVC
+# 🖼️ Image Upload and Display in ASP.NET Core MVC
 
 This guide walks you through creating a profile picture upload form in **ASP.NET Core MVC** that allows the user to upload a Picture and display the **Imange inline** on the same page.
 
