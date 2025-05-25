@@ -45,14 +45,15 @@ public class CityModel
 [Area("Country")]
 public class CountryController : Controller
 {
+    List<CountryModel> countries = new List<CountryModel>
+    {
+        new CountryModel { CountryID = 1, CountryName = "India" },
+        new CountryModel { CountryID = 2, CountryName = "USA" },
+        new CountryModel { CountryID = 3, CountryName = "Germany" }
+    };
     public IActionResult CountryList()
     {
-        var countries = new List<CountryModel>
-        {
-            new CountryModel { CountryID = 1, CountryName = "India" },
-            new CountryModel { CountryID = 2, CountryName = "USA" },
-            new CountryModel { CountryID = 3, CountryName = "Germany" }
-        };
+
         return View(countries);
     }
 }
@@ -63,14 +64,14 @@ public class CountryController : Controller
 [Area("State")]
 public class StateController : Controller
 {
+    List<StateModel> states = new List<StateModel>
+    {
+        new StateModel { StateID = 1, StateName = "Gujarat", CountryName = "India" },
+        new StateModel { StateID = 2, StateName = "California", CountryName = "USA" },
+        new StateModel { StateID = 3, StateName = "Bavaria", CountryName = "Germany" }
+    };
     public IActionResult StateList()
     {
-        var states = new List<StateModel>
-        {
-            new StateModel { StateID = 1, StateName = "Gujarat", CountryName = "India" },
-            new StateModel { StateID = 2, StateName = "California", CountryName = "USA" },
-            new StateModel { StateID = 3, StateName = "Bavaria", CountryName = "Germany" }
-        };
         return View(states);
     }
 }
@@ -81,14 +82,14 @@ public class StateController : Controller
 [Area("City")]
 public class CityController : Controller
 {
+    List<CityModel> cities = new List<CityModel>
+    {
+        new CityModel { CityID = 1, CityName = "Ahmedabad", StateName = "Gujarat", CountryName = "India" },
+        new CityModel { CityID = 2, CityName = "Los Angeles", StateName = "California", CountryName = "USA" },
+        new CityModel { CityID = 3, CityName = "Munich", StateName = "Bavaria", CountryName = "Germany" }
+    };
     public IActionResult CityList()
     {
-        var cities = new List<CityModel>
-        {
-            new CityModel { CityID = 1, CityName = "Ahmedabad", StateName = "Gujarat", CountryName = "India" },
-            new CityModel { CityID = 2, CityName = "Los Angeles", StateName = "California", CountryName = "USA" },
-            new CityModel { CityID = 3, CityName = "Munich", StateName = "Bavaria", CountryName = "Germany" }
-        };
         return View(cities);
     }
 }
