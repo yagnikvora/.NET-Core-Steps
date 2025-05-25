@@ -103,7 +103,7 @@ public IActionResult SaveState(StateModel model)
     @Html.HiddenFor(m => m.CountryID)
     <div class="form-group row my-2">
         <label class="col-2" asp-for="CountryName">Country Name<span class="text-danger">*</span></label>
-        <input asp-for="CountryName" class="form-control col" maxlength="4" />
+        <input asp-for="CountryName" class="form-control col"/>
         <span asp-validation-for="CountryName" class="text-danger"></span>
     </div>
     
@@ -127,7 +127,7 @@ public IActionResult SaveState(StateModel model)
 
     <div class="form-group row my-2">
         <label class="col-2" asp-for="StateName">State Name<span class="text-danger">*</span></label>
-        <input asp-for="StateName" class="form-control col" maxlength="4" />
+        <input asp-for="StateName" class="form-control col" />
         <span asp-validation-for="StateName" class="text-danger"></span>
     </div>
 
@@ -161,7 +161,7 @@ public IActionResult SaveState(StateModel model)
     @Html.HiddenFor(m => m.CityID)
     <div class="form-group row my-2">
         <label class="col-2" asp-for="CityName">Bill Number<span class="text-danger">*</span></label>
-        <input asp-for="CityName" class="form-control col" maxlength="4" />
+        <input asp-for="CityName" class="form-control col" />
         <span asp-validation-for="CityName" class="text-danger"></span>
     </div>
     <div class="form-group row my-2">
