@@ -9,7 +9,7 @@
 [HttpPost]
 public IActionResult SaveCountry(StateModel model)
 {
-    if (model.CountryID <= 0)
+    if (model.CountryID < 0)
     {
         ModelState.AddModelError("CountryID", "A valid Country is required.");
     }
@@ -21,7 +21,7 @@ public IActionResult SaveCountry(StateModel model)
         connection.Open();
         SqlCommand command = connection.CreateCommand();
         command.CommandType = CommandType.StoredProcedure;
-        if (model.CountryID == null)
+        if (model.CountryID == 0)
         {
             command.CommandText = "PR_Country_Insert";
         }
@@ -47,7 +47,7 @@ public IActionResult SaveCountry(StateModel model)
 
 ### Part 1: Fetch and Populate Existing Data in the Text Fields
 
-To retrieve the existing product data and display it in the form for editing, update the `AddEditCountry` method:
+To retrieve the existing Country data and display it in the form for editing, update the `AddEditCountry` method:
 
 ```csharp
 public IActionResult AddEditCountry(int? CountryID)
@@ -66,22 +66,22 @@ public IActionResult AddEditCountry(int? CountryID)
     SqlDataReader reader = command.ExecuteReader();
     DataTable table = new DataTable();
     table.Load(reader);
-    CountryModel productModel = new CountryModel();
+    CountryModel CountryModel = new CountryModel();
 
     foreach (DataRow dataRow in table.Rows)
     {
-        productModel.CountryID = Convert.ToInt32(@dataRow["CountryID"]);
-        productModel.CountryName = @dataRow["CountryName"].ToString();
+        CountryModel.CountryID = Convert.ToInt32(@dataRow["CountryID"]);
+        CountryModel.CountryName = @dataRow["CountryName"].ToString();
     }
     #endregion
 
-    return View("CountryAddEdit", productModel);
+    return View("CountryAddEdit", CountryModel);
 }
 ```
 
-### Part 2: Update the Product Data in the Database
+### Part 2: Update the Country Data in the Database
 
-The logic for updating the Country data has already been implemented in the `ProductSave` method.
+The logic for updating the Country data has already been implemented in the `CountrySave` method.
 
 ## Step 4: Add Edit Button with Link in the List Page
 
