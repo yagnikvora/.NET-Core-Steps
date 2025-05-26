@@ -34,7 +34,8 @@ CREATE TABLE State (
 CREATE TABLE City (
     CityID INT PRIMARY KEY IDENTITY(1,1),
     CityName NVARCHAR(100) NOT NULL,
-    StateID INT FOREIGN KEY REFERENCES State(StateID)
+    StateID INT FOREIGN KEY REFERENCES State(StateID),
+    CountryID INT FOREIGN KEY REFERENCES Country(CountryID)
 );
 
 ```
@@ -51,10 +52,10 @@ INSERT INTO State (StateName, CountryID) VALUES
     ('California', 2), ('Texas', 2);
 
 INSERT INTO City (CityName, StateID) VALUES 
-    ('Ahmedabad', 1), ('Surat', 1),
-    ('Mumbai', 2), ('Pune', 2),
-    ('Los Angeles', 3), ('San Francisco', 3),
-    ('Houston', 4), ('Dallas', 4);
+    ('Ahmedabad', 1,1), ('Surat', 1,1),
+    ('Mumbai', 2,1), ('Pune', 2,1),
+    ('Los Angeles', 3,2), ('San Francisco', 3,2),
+    ('Houston', 4,2), ('Dallas', 4,2);
 
 ```
 

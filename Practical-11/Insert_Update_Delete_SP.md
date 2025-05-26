@@ -85,11 +85,12 @@ END
 ```sql
 CREATE PROCEDURE [dbo].[PR_City_Insert]
     @CityName NVARCHAR(100),
-    @StateID INT
+    @StateID INT,
+    @CountryID INT
 AS
 BEGIN
-    INSERT INTO [dbo].[City] ([CityName], [StateID])
-    VALUES (@CityName, @StateID);
+    INSERT INTO [dbo].[City] ([CityName], [StateID],[CountryID])
+    VALUES (@CityName, @StateID,@CountryID);
 END
 
 ```
@@ -99,12 +100,14 @@ END
 CREATE PROCEDURE [dbo].[PR_City_Update]
     @CityID INT,
     @CityName NVARCHAR(100),
-    @StateID INT
+    @StateID INT,
+    @CountryID INT
 AS
 BEGIN
     UPDATE [dbo].[City]
     SET [CityName] = @CityName,
         [StateID] = @StateID
+        [CountryID] = @CountryID
     WHERE [CityID] = @CityID;
 END
 
