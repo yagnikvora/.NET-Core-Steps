@@ -15,26 +15,26 @@ This document provides step-by-step instructions to create an ASP.NET Core MVC p
 
 ---
 
-## ✅ 2. Create Areas: Country, State, City
+## ✅ 2. Create Areas: LOC_Country, LOC_State, LOC_City
 
 ### 📁 Folder Structure:
 
 ```
 Areas
 │
-├── Country
+├── LOC_Country
 │   └── Controllers
 │   └── Models
 │   └── Views
 │       └── Country
 │
-├── State
+├── LOC_State
 │   └── Controllers
 │   └── Models
 │   └── Views
 │       └── State
 │
-├── City
+├── LOC_City
     └── Controllers
     └── Models
     └── Views
@@ -51,8 +51,8 @@ Edit `Program.cs`:
 app.UseRouting();
 
 app.MapControllerRoute(
-name : "areas",
-pattern : "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    name : "areas",
+    pattern : "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 );
 
 ```
@@ -61,7 +61,7 @@ pattern : "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 
 ## ✅ 4. Create Models
 
-### 📁 `Areas/Country/Models/CountryModel.cs`
+### 📁 `Areas/LOC_Country/Models/CountryModel.cs`
 
 ```csharp
 public class CountryModel
@@ -72,20 +72,20 @@ public class CountryModel
 ```
 
 Repeat similarly for:
-- `StateModel` in `Areas/State/Models/`
-- `CityModel` in `Areas/City/Models/`
+- `StateModel` in `Areas/LOC_State/Models/`
+- `CityModel` in `Areas/LOC_City/Models/`
 
 ---
 
 ## ✅ 5. Create Controllers
 
-### 📁 `Areas/Country/Controllers/CountryController.cs`
+### 📁 `Areas/LOC_Country/Controllers/CountryController.cs`
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
-using AddressBook.Areas.Country.Models;
+using AddressBook.Areas.LOC_Country.Models;
 
-namespace AddressBook.Areas.Country.Controllers
+namespace AddressBook.Areas.LOC_Country.Controllers
 {
     [Area("Country")]
     public class CountryController : Controller
@@ -104,7 +104,7 @@ Repeat similarly for `StateController` and `CityController`.
 
 ## ✅ 6. Create Views
 
-### 📄 `Areas/Country/Views/Country/Index.cshtml`
+### 📄 `Areas/LOC_Country/Views/Country/Index.cshtml`
 
 ```html
 @{
@@ -121,8 +121,8 @@ Repeat similarly for State and City.
 ## ✅ 7. Run Application
 
 Visit these URLs:
-- `/Country/Country/Index`
-- `/State/State/Index`
-- `/City/City/Index`
+- `/LOC_Country/Country/Index`
+- `/LOC_State/State/Index`
+- `/LOC_City/City/Index`
 
 
