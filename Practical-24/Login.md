@@ -169,7 +169,7 @@ Set up your login page to accept the username and password. Use `asp-for` to bin
 
 ```html
 ﻿@{
-    Layout = "~/Views/Shared/_Layout_Register.cshtml";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
 }
 
 @model AddressBook.Models.UserLoginModel
