@@ -50,7 +50,7 @@ public IActionResult SaveCountry(StateModel model)
 To retrieve the existing Country data and display it in the form for editing, update the `AddEditCountry` method:
 
 ```csharp
-public IActionResult AddEditCountry(int? CountryID)
+public IActionResult AddEditCountry(int CountryID)
 {
     string connectionString = this._configuration.GetConnectionString("ConnectionString");
 
