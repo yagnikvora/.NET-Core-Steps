@@ -7,7 +7,7 @@
 
 ```csharp
 [HttpPost]
-public IActionResult SaveCountry(StateModel model)
+public IActionResult SaveCountry(CountryModel model)
 {
     if (model.CountryID < 0)
     {
