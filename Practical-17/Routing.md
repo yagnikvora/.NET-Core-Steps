@@ -9,13 +9,11 @@ This file explains how to implement Attribute Routing for the `Country`, `State`
 Make sure routing supports areas and this code must be above the default app.MapControllerRoute():
 
 ```csharp
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
-});
+app.MapControllerRoute(
+  name: "areas",
+  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
 ```
 
 ---
