@@ -35,7 +35,7 @@ public IActionResult SaveCountry(StateModel model)
         return RedirectToAction("CountryList");
     }
 
-    return View("CountryAddEdit", model);
+    return View("AddEditCountry", model);
 
 }
 
@@ -75,7 +75,7 @@ public IActionResult AddEditCountry(int? CountryID)
     }
     #endregion
 
-    return View("CountryAddEdit", CountryModel);
+    return View("AddEditCountry", CountryModel);
 }
 ```
 
