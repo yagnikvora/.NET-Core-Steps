@@ -7,7 +7,7 @@
 
 ```csharp
 [HttpPost]
-public IActionResult SaveCountry(StateModel model)
+public IActionResult SaveCountry(CountryModel model)
 {
     if (model.CountryID < 0)
     {
@@ -35,7 +35,7 @@ public IActionResult SaveCountry(StateModel model)
         return RedirectToAction("CountryList");
     }
 
-    return View("CountryAddEdit", model);
+    return View("AddEditCountry", model);
 
 }
 
@@ -50,7 +50,7 @@ public IActionResult SaveCountry(StateModel model)
 To retrieve the existing Country data and display it in the form for editing, update the `AddEditCountry` method:
 
 ```csharp
-public IActionResult AddEditCountry(int? CountryID)
+public IActionResult AddEditCountry(int CountryID)
 {
     string connectionString = this._configuration.GetConnectionString("ConnectionString");
 
@@ -75,7 +75,7 @@ public IActionResult AddEditCountry(int? CountryID)
     }
     #endregion
 
-    return View("CountryAddEdit", CountryModel);
+    return View("AddEditCountry", CountryModel);
 }
 ```
 

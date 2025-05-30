@@ -162,7 +162,7 @@ public class EmployeeController : Controller
 
 ---
 
-### ➤ Views/Home/ContactUs.cshtml
+### ➤ Views/Home/Index.cshtml
 
 ```csharp
 @model List<YourProjectName.Models.EmployeeModel>
