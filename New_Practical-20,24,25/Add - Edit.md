@@ -14,6 +14,11 @@ public IActionResult SaveCountry(CountryModel model)
         ModelState.AddModelError("CountryID", "A valid Country is required.");
     }
 
+    if (string.IsNullOrEmpty(model.CountryName))  
+    {  
+        ModelState.AddModelError("CountryName", "CountryName is required");  
+    }  
+
     if (ModelState.IsValid)
     {
         string connectionString = this._configuration.GetConnectionString("ConnectionString");
@@ -88,5 +93,14 @@ The logic for updating the Country data has already been implemented in the `Cou
 ```csharp
 <a class="btn btn-info" asp-area="LOC_Country" asp-controller="Country" asp-action="AddEditCountry">Add Country</a>
 ```
-
-## Step 5: Verify Update Operation and do same for State and City table
+## Step 5: Add/Modify Edit Button in CountryList page
+```csharp
+<td>
+    <a asp-controller="Country" asp-action="AddEditCountry" asp-route-CountryID="@country["CountryID"]">
+        <button type="submit" class="btn btn-warning">
+            <i class="bx bx-edit"></i>
+        </button>
+    </a>
+</td>
+```
+## Step 5: Verify Update Operation and do same for State and Country table
